@@ -1,5 +1,5 @@
 class Procurement < ApplicationRecord
-  belong_to :user
+  belongs_to :author, class_name: 'User'
   has_many :categories_procurements
   has_many :categories, through: :categories_procurements
 
