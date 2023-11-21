@@ -1,0 +1,22 @@
+<section>
+  <nav>
+    <h2>Categories</h2>
+  </nav>
+  <section>
+    <% @categories.each do |category| %>
+      <div>
+        <div>
+          <img src="<%= category.icon %>">
+          <%= link_to category_procurements_path(category) do %>
+            <%= category.name %>
+          <% end %>
+        </div>
+        <div>
+          <p><%= category.procurements.size %></p>
+        </div>
+      </div>
+    <% end %>
+  </section>
+  <%= link_to 'Add Category', new_category_path %>
+
+</section>
