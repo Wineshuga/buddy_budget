@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root "home#index"
-  resources :categories, only: [:index, :show, :new, :create] do
+  resources :categories, only: [:index, :new, :create] do
     resources :procurements, only: [:index, :show, :new, :create]
   end
 
