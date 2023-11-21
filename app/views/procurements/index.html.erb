@@ -1,0 +1,32 @@
+<section>
+  <nav>
+    <%= link_to '<', :back %>
+    <h2>Transactions</h2>
+  </nav>
+  <div>
+    <div>
+      <img src="<%= @category.icon %>">
+      <%= @category.name %>
+    </div>
+    <% procurement_sum = 0 %>
+    <% @procurements.each do |procurement| %>
+      <% procurement_sum += procurement.amount %>
+    <% end %>
+    <div>
+      <p>Total: $<%= procurement_sum %></p>
+    </div>
+  </div>
+
+  <section>
+    <% @procurements.each do |procurement| %>
+      <div>
+        <p><%= procurement.name %></p>
+        <p><%= procurement.updated_at.strftime("%e %b %Y") %></p>
+      </div>
+      <div>
+        <p>$<%= procurement.amount %></p>
+      </div>
+    <% end %>
+  </section>
+  <%= link_to 'Add Transaction', new_category_procurement_path %>
+</section>
