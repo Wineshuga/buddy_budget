@@ -1,6 +1,6 @@
 <section>
   <nav>
-    <%= link_to '<', categories_path %>
+    <%= link_to '<', root_path %>
     <h2>Add a New Category</h2>
   </nav>
   <%= form_with model: @category, html: { multipart: true }, url: categories_path do |f| %>

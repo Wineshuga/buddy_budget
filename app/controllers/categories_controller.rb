@@ -15,10 +15,10 @@ class CategoriesController < ApplicationController
 
     if @category.save
       flash[:notice] = 'A Category has been created!'
-      redirect_to categories_path
+      redirect_to root_path
     else
       flash[:alert] = "Error! #{@category.errors.full_messages.join(', ')}"
-      redirect_to new_category_path
+      redirect_to new_categories_path
     end
   end
 

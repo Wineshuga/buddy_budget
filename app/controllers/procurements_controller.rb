@@ -20,7 +20,7 @@ class ProcurementsController < ApplicationController
       redirect_to category_procurements_path
     else
       flash[:alert] = "Error! #{@procurement.errors.full_messages.join(', ')}"
-      redirect_to new_category_procurement_path
+      redirect_to new_category_procurements_path
     end
   end
 
