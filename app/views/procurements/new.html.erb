@@ -2,6 +2,7 @@
   <nav>
     <%= link_to '<', category_procurements_path %>
     <h2>Add a New Transaction</h2>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
   </nav>
   <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
     <div>

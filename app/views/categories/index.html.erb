@@ -1,6 +1,7 @@
 <section>
   <nav>
     <h2>Categories</h2>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
   </nav>
   <section>
     <% @categories.each do |category| %>

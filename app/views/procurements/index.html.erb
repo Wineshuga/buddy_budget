@@ -2,6 +2,7 @@
   <nav>
     <%= link_to '<', root_path %>
     <h2>Transactions</h2>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
   </nav>
   <div>
     <div>
