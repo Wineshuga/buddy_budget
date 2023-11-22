@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root to: 'splash#index'
+
   devise_for :users
   
-  root "categories#index"
-  resources :categories, only: [ :create] do
+  resources :categories, only: [ :index, :create] do
     collection do
       get 'add_a_category', to: 'categories#new', as: 'new'
     end
