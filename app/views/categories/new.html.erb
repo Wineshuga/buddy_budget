@@ -2,7 +2,7 @@
   <nav>
     <%= link_to '<', root_path %>
     <h2>Add a New Category</h2>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
   </nav>
   <%= form_with model: @category, html: { multipart: true }, url: categories_path do |f| %>
     <div>
