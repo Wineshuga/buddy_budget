@@ -1,0 +1,23 @@
+<section>
+  <nav>
+    <%= link_to '<', category_procurements_path %>
+    <h2>Add a New Transaction</h2>
+  </nav>
+  <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :amount %>
+      <%= f.number_field :amount %>
+    </div>
+    <div class="field">
+      <%= f.label :category_ids, 'Select Categories' %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    </div>
+    <div>
+      <%= f.submit 'Add transaction' %>
+    </div>
+  <% end %>
+</section>
