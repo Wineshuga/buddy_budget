@@ -19,7 +19,7 @@ class ProcurementsController < ApplicationController
       flash[:notice] = 'A transaction has been created!'
       redirect_to category_procurements_path
     else
-      flash[:alert] = "Error! #{@procurement.errors.full_messages.join(', ')}"
+      flash[:alert] = 'Error! Transaction can not be added!'
       redirect_to new_category_procurements_path
     end
   end
