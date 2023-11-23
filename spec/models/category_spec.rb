@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  let(:user) { User.create(name: 'Tom') }
+  let(:user) { User.create(name: 'Tom', email: 'tom@gmail.com', password: 'password') }
 
   describe 'validations' do
     let(:cat) { Category.create(name: 'Category', icon: 'https://img.png', author_id: user.id) }
