@@ -1,23 +1,26 @@
-<section>
-  <nav>
-    <h2>Categories</h2>
-    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  </nav>
-  <section>
-    <% @categories.each do |category| %>
+<nav>
+  <div><h2>Categories</h2></div>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+</nav>
+<section class="main">
+  <% @categories.each do |category| %>
+    <section class="category">
       <div>
-        <div>
-          <img src="<%= category.icon %>">
-          <%= link_to category_procurements_path(category) do %>
-            <%= category.name %>
-          <% end %>
-        </div>
-        <div>
-          <p><%= category.procurements.size %></p>
-        </div>
+        <img src="<%= category.icon %>">
+        <%= link_to category_procurements_path(category) do %>
+          <%= category.name %>
+        <% end %>
       </div>
-    <% end %>
-  </section>
-  <%= link_to 'Add a New Category', new_categories_path %>
-
+      <% procurement_sum = 0 %>
+      <% category.procurements.each do |procurement| %>
+        <% procurement_sum += procurement.amount %>
+      <% end %>
+      <div>
+        <p>$<%= procurement_sum %></p>
+      </div>
+    </section>
+  <% end %>
 </section>
+<div class="add-btn btn">
+  <%= link_to 'Add a New Category', new_categories_path %>
+</div>

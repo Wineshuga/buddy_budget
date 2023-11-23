@@ -1,0 +1,11 @@
+.category {
+  background-color: white;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category img {
+  width: 20%;
+}

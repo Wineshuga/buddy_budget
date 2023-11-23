@@ -1,9 +1,9 @@
-<section>
-  <div>
-    <p>BuddyBudget</p>
+<section class="splash">
+  <div class="splash-main">
+    <p id="logo">BuddyBudget</p>
   </div>
-  <ul>
-    <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-  </ul>
+  <div class="splash-link">
+      <%= link_to 'Sign In', new_user_session_path, class: "splash-linkOne btn" %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "splash-linkTwo btn" %>
+  </div>
 </section>

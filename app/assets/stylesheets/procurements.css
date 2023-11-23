@@ -1,0 +1,22 @@
+.procurement,
+.main-category {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem
+}
+
+.procurement {
+  margin: 0.5rem 0;
+}
+
+.procurement img {
+  width: 20%;
+}

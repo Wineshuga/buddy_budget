@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+ * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+ }
+
+ body {
+  background-color: #F5F6F8;
+ }
+
+ p,
+ a,
+ h2,
+ button,
+ label,
+ input {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
+
+ nav {
+  background-color: #3778c2;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+ }
+
+ nav a {
+  font-size: 1.5rem;
+  color: white;
+ }
+
+ nav h2 {
+  color: white;
+ }
+
+ .notice,
+ .alert {
+  position: absolute;
+  top: 0;
+  color: white;
+ }
+
+ button {
+  border: none;
+  background-color: transparent;
+  color: white;
+ }
+
+ .add-page-text {
+  font-size: 10px;
+ }
+
+.main {
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 1rem;
+  text-align: center;
+ }
+
+.add-btn {
+  background-color: #60B524;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.field {
+  width: 100%;
+}
+
+input[type = 'checkbox'] {
+  margin: 0.8rem;
+}
+
+input[type = 'email'],
+input[type = 'password'],
+input[type = 'text'],
+input[type = 'submit'],
+input[type = 'number'] {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.3rem 0;
+  border: none;
+  border-bottom: 1px solid #EFEFEF;
+  background-color: white;
+}
+
+input[type = 'file'] {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.add-btn a {
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 3rem;
+}
