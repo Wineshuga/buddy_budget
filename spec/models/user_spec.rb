@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   before { user.save }
   describe 'Validation' do
     it 'accepts user if name is present' do
-      expect(user).to be_valid 
+      expect(user).to be_valid
     end
 
     it 'declines user if name is absent' do

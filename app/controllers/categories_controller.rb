@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-    
+
   def new
     @category = Category.new
   end
@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.where(author_id: current_user.id)
   end
-  
+
   def create
     @category = Category.new(category_params)
     @category.author_id = current_user.id
