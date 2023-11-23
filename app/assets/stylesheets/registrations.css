@@ -5,10 +5,10 @@
   padding: 0 1rem;
 }
 
-.sign_up-page input[type = 'email'],
-.sign_up-page input[type = 'password'],
-.sign_up-page input[type = 'text'],
-.sign_up-page input[type = 'submit'],
-.sign_up-page input[type = 'number'] {
+.sign_up-page input[type='email'],
+.sign_up-page input[type='password'],
+.sign_up-page input[type='text'],
+.sign_up-page input[type='submit'],
+.sign_up-page input[type='number'] {
   width: 19rem;
 }
