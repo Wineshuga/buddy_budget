@@ -16,11 +16,11 @@ RSpec.describe 'Procurements', type: :request do
     end
 
     it 'returns correct status' do
-      expect(response.status).to eq(302)
+      expect(response.status).to eq(200)
     end
 
     it 'renders placeholder on page' do
-      expect(response.body).to include('')
+      expect(response.body).to include('Transactions')
     end
   end
 end

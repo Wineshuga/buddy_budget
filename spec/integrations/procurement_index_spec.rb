@@ -6,7 +6,6 @@ RSpec.describe 'Procurement Index Page', type: :feature do
   let(:cat) { Category.create(name: 'Category', icon: 'https://img.png', author_id: user.id) }
 
   before do
-    user.confirm
     sign_in user
   end
   it 'displays placeholders' do

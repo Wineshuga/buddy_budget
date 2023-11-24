@@ -5,7 +5,6 @@ RSpec.describe 'Category Index Page', type: :feature do
   let(:user) { User.create(name: 'Tom', email: 'tom@gmail.com', password: 'password') }
 
   before do
-    user.confirm
     sign_in user
   end
   it 'displays placeholders' do
