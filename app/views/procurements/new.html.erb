@@ -19,7 +19,7 @@
       <div class="field">
         <%= f.label :category_ids, 'Select Categories' %>:
         <div>
-          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+          <%= f.collection_check_boxes :category_ids, Category.where(author: current_user), :id, :name %>
         </div>
       </div>
       <div>
