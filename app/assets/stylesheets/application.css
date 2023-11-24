@@ -71,7 +71,7 @@ button {
 
 .main {
   padding: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .btn {
@@ -114,5 +114,17 @@ input[type='file'] {
 .add-btn a {
   border: 1px solid white;
   color: white;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 4.5rem;
+}
+
+@media (min-width: 375px) {
+  .add-btn a {
+    padding: 0.5rem 6.3rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .add-btn a {
+    padding: 0.5rem 7.5rem;
+  }
 }

@@ -13,6 +13,10 @@
   gap: 0.5rem;
 }
 
+.category-box img {
+  width: 15%;
+}
+
 .procurement {
   margin: 0.5rem 0;
 }

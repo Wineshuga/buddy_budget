@@ -4,13 +4,15 @@
 </nav>
 <section class="main">
   <% @categories.each do |category| %>
+    <%= link_to category_procurements_path(category) do %>
     <section class="category">
-      <div>
-        <img src="<%= category.icon %>">
-        <%= link_to category_procurements_path(category) do %>
-          <%= category.name %>
-        <% end %>
-      </div>
+      <section class="category-one">
+          <img src="<%= category.icon %>">
+        <div>
+          <p><%= category.name %></p>
+          <p><%= category.updated_at.strftime("%e %b %Y") %></p>
+        </div>
+      </section>
       <% procurement_sum = 0 %>
       <% category.procurements.each do |procurement| %>
         <% procurement_sum += procurement.amount %>
@@ -19,6 +21,7 @@
         <p>$<%= procurement_sum %></p>
       </div>
     </section>
+    <% end %>
   <% end %>
 </section>
 <div class="add-btn btn">
