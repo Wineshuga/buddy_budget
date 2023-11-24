@@ -31,7 +31,7 @@
 # 📖 BuddyBudget <a name="about-project"></a>
 
 **BuddyBudget** is a a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
-[Click here to watch a video description of the project.](https://www.loom.com/share/760fc775d54640229856ebfa40607faa?sid=2d61c5ea-e91a-40fe-81bf-22cf338f335b)
+[Click here to watch a video description of the project.](https://www.loom.com/share/8bf498c1ad214ff59a3a3b738058258d?sid=5182b160-99c2-473d-845a-4d41c091bc0d)
 
 ## 🛠 Built With <a name="built-with"></a>
 
