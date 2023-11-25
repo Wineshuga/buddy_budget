@@ -1,0 +1,38 @@
+<nav>
+  <div>
+    <%= link_to '<', categories_path %>
+  </div>
+  <div>
+    <h2>Transactions</h2>
+  </div>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+</nav>
+<section class="main-category">
+  <div class="category-box">
+    <img src="<%= @category.icon %>">
+    <p><%= @category.name %></p>
+  </div>
+  <% procurement_sum = 0 %>
+  <% @procurements.each do |procurement| %>
+    <% procurement_sum += procurement.amount %>
+  <% end %>
+  <div>
+    <p>$<%= procurement_sum %></p>
+  </div>
+</section>
+<section class="main">
+  <% @procurements.each do |procurement| %>
+  <section class="procurement">
+    <div>
+      <p><%= procurement.name %></p>
+      <p><%= procurement.updated_at.strftime("%e %b %Y") %></p>
+    </div>
+    <div>
+      <p>$<%= procurement.amount %></p>
+    </div>
+  </section>
+  <% end %>
+</section>
+<div class="add-btn btn">
+  <%= link_to 'Add a New Transaction', new_category_procurements_path %>
+</div>

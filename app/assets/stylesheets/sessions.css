@@ -1,0 +1,14 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.login-page input[type='email'],
+.login-page input[type='password'],
+.login-page input[type='text'],
+.login-page input[type='submit'],
+.login-page input[type='number'] {
+  width: 19rem;
+}
