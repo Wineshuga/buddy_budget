@@ -1,0 +1,30 @@
+<section>
+  <nav>
+    <div>
+      <%= link_to '<', category_procurements_path %>
+    </div>
+    <div class="add-page-text">
+      <h2>Add a New Transaction</h2>
+    </div>
+    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  </nav>
+  <section class="main">
+    <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
+      <div>
+        <%= f.text_field :name, placeholder: "Name of transaction" %>
+      </div>
+      <div>
+        <%= f.number_field :amount, placeholder: "Amount" %>
+      </div>
+      <div class="field">
+        <%= f.label :category_ids, 'Select Categories' %>:
+        <div>
+          <%= f.collection_check_boxes :category_ids, Category.where(author: current_user), :id, :name %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit 'Add transaction' %>
+      </div>
+    <% end %>
+  </section>
+</section>
