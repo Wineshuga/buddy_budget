@@ -5,5 +5,6 @@ class Procurement < ApplicationRecord
 
   validates :name, presence: true
   validates :amount, presence: true, numericality: { only_integer: true }
+  validates :date, presence: true
   validates :category_ids, presence: true
 end

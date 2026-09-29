@@ -19,6 +19,8 @@ class ProcurementsController < ApplicationController
       flash[:notice] = 'A transaction has been created!'
       redirect_to category_procurements_path
     else
+      puts 'ERRORS:'
+      puts @procurement.errors.full_messages
       flash[:alert] = 'Error! Transaction can not be added!'
       redirect_to new_category_procurements_path
     end
@@ -27,6 +29,6 @@ class ProcurementsController < ApplicationController
   private
 
   def procurement_params
-    params.require(:procurement).permit(:name, :amount, category_ids: [])
+    params.require(:procurement).permit(:name, :amount, :date, category_ids: [])
   end
 end

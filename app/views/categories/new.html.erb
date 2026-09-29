@@ -1,24 +1,19 @@
 <section>
   <nav>
     <div>
-      <%= link_to '<', categories_path %>
+      <%= link_to '‹', categories_path %>
     </div>
     <div class="add-page-text">
-      <h2>Add a New Category</h2>
+      <h2>Add Category</h2>
     </div>
     <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
   </nav>
   <section class="main">
     <div class="form-card">
-      <h3 class="form-card-title">Category Details</h3>
       <%= form_with model: @category, html: { multipart: true }, url: categories_path do |f| %>
         <div class="field">
           <%= f.label :name, "Category Name" %>
           <%= f.text_field :name, placeholder: "e.g. Groceries, Entertainment, Travel" %>
-        </div>
-        <div class="field">
-          <%= f.label :image, "Category Icon / Image" %>
-          <%= f.file_field :image %>
         </div>
         <div class="actions">
           <%= f.submit 'Add category' %>

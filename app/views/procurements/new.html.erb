@@ -1,7 +1,7 @@
 <section>
   <nav>
     <div>
-      <%= link_to '<', category_procurements_path %>
+      <%= link_to '‹', category_procurements_path %>
     </div>
     <div class="add-page-text">
       <h2>Add a New Transaction</h2>
@@ -10,8 +10,7 @@
   </nav>
   <section class="main">
     <div class="form-card">
-      <h3 class="form-card-title">Transaction Details</h3>
-      <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
+      <%= form_with model: @procurement, url: category_procurements_path do |f| %>
         <div class="field">
           <%= f.label :name, "Transaction Name" %>
           <%= f.text_field :name, placeholder: "e.g. Weekly Grocery Shopping, Coffee" %>
@@ -20,6 +19,11 @@
         <div class="field">
           <%= f.label :amount, "Amount (₦)" %>
           <%= f.number_field :amount, placeholder: "e.g. 45" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :date, "Date" %>
+          <%= f.date_field :date %>
         </div>
 
         <div class="field">
