@@ -23,16 +23,20 @@
       <% @categories.each do |category| %>
         <%= link_to category_procurements_path(category), class: "category-card-link" do %>
           <section class="category">
-            <section class="category-one">
-              <div class="category-details">
-                <div class="category-fallback-icon">🏷️</div>
-                <p class="category-name"><%= category.name %></p>
-              </div>
-              <p class="category-date"><%= category.updated_at.strftime("%d %b %Y") %></p>
-            </section>
-            <% procurement_sum = category.procurements.sum(&:amount) %>
-            <div class="category-amount-box">
-              <p class="category-amount">₦ <%= procurement_sum %></p>
+            <div class="category-details">
+              <div class="category-fallback-icon">🏷️</div>
+              <p class="category-name"><%= category.name %></p>
+            </div>
+            <div class="category-count-box">
+              <p class="category-item"> 
+                <% if category.procurements.count == 0%>
+                Item
+              </p>
+              <% else%>
+                Items
+              </p>
+              <% end %>
+              <p class="category-count"><%= category.procurements.count %></p>
             </div>
           </section>
         <% end %>

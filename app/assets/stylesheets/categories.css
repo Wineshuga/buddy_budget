@@ -47,7 +47,8 @@
   border-radius: var(--radius-md);
   padding: 1.1rem 1.2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-light);
   transition: all 0.2s ease;
@@ -59,15 +60,8 @@
   border-color: #cbd5e1;
 }
 
-.category-one {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .category-fallback-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .category-details {
@@ -83,23 +77,16 @@
   color: var(--text-main);
 }
 
-.category-date {
+.category-item {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-muted);
 }
 
-.category-amount-box {
-  background-color: #f8fafc;
-  padding: 0.5rem 0.85rem;
-  border-radius: 10px;
-  border: 1px solid #f1f5f9;
-  width: fit-content;
-}
-
-.category-amount {
+.category-count {
   font-size: 1rem;
   font-weight: 800;
+  text-align: center;
   color: var(--text-main);
 }
 
