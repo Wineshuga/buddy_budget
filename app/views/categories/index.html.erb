@@ -1,31 +1,55 @@
 <nav>
-  <div><h2>Categories</h2></div>
+  <div><h1>Home</h1></div>
   <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
 </nav>
+
 <section class="main">
-  <% @categories.each do |category| %>
-    <%= link_to category_procurements_path(category) do %>
-    <section class="category">
-      <section class="category-one">
-          <img src="<%= category.image.url %>">
-        <div>
-          <p><%= category.name %></p>
-          <p><%= category.updated_at.strftime("%e %b %Y") %></p>
-        </div>
-      </section>
-      <% procurement_sum = 0 %>
-      <% category.procurements.each do |procurement| %>
-        <% procurement_sum += procurement.amount %>
+  <% total_expenditure = @categories.sum { |c| c.procurements.sum(&:amount) } %>
+  
+  <div class="total-summary-card">
+    <div class="summary-label">Total Expenditure</div>
+    <div class="summary-amount">NGN <%= number_with_precision(total_expenditure, precision: 2, delimiter: ',') %></div>
+    <div class="summary-meta"><%= @categories.count %> Categories tracked</div>
+  </div>
+
+  <% if @categories.empty? %>
+    <div class="empty-state">
+      <div class="empty-icon">📁</div>
+      <h3>No Categories Yet</h3>
+      <p>Tap the button below to add your first budget category.</p>
+    </div>
+  <% else %>
+    <div class="categories-list">
+      <% @categories.each do |category| %>
+        <%= link_to category_procurements_path(category), class: "category-card-link" do %>
+          <section class="category">
+            <section class="category-one">
+              <div class="category-img-box">
+                <% if category.image.attached? %>
+                  <img src="<%= category.image.url %>" alt="<%= category.name %>">
+                <% else %>
+                  <div class="category-fallback-icon">🏷️</div>
+                <% end %>
+              </div>
+              <div class="category-details">
+                <p class="category-name"><%= category.name %></p>
+                <p class="category-date"><%= category.updated_at.strftime("%d %b %Y") %></p>
+              </div>
+            </section>
+            <% procurement_sum = category.procurements.sum(&:amount) %>
+            <div class="category-amount-box">
+              <p class="category-amount">NGN <%= procurement_sum %></p>
+            </div>
+          </section>
+        <% end %>
       <% end %>
-      <div>
-        <p>$<%= procurement_sum %></p>
-      </div>
-    </section>
-    <% end %>
+    </div>
   <% end %>
 </section>
+
 <div class="add-btn btn">
   <div class="inner-btn">
     <%= link_to 'Add a New Category', new_categories_path %>
   </div>
 </div>
+

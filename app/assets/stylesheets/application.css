@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
@@ -19,119 +8,285 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-blue: #3778c2;
+  --primary-blue-dark: #1d4ed8;
+  --primary-gradient: linear-gradient(135deg, #3778c2 0%, #1e40af 100%);
+  --accent-green: #10b981;
+  --accent-green-dark: #059669;
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  --bg-desktop: #0f172a;
+  --bg-mobile: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-btn: 0 8px 16px -4px rgba(16, 185, 129, 0.35);
 }
 
 body {
-  background-color: #f5f6f8;
+  background-color: var(--bg-desktop);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-p,
-a,
-h2,
-button,
-label,
-input {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* Mobile Frame Wrapper & Container */
+.mobile-device-wrapper {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  background-color: var(--bg-mobile);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+.mobile-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Navigation Bar */
 nav {
-  background-color: #3778c2;
-  padding: 1rem;
+  background: var(--primary-gradient);
+  padding: 1.1rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 nav a {
-  font-size: 1.5rem;
-  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(-2px);
 }
 
 nav h2 {
-  color: white;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+nav button {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Flash Toasts */
+.flash-toast {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 390px;
+  z-index: 100;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.notice-wrapper {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.alert-wrapper {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
 }
 
 .notice,
 .alert {
-  position: absolute;
-  top: 0;
-  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
 }
 
-button {
-  border: none;
-  background-color: transparent;
-  color: white;
-}
-
-.add-page-text {
-  font-size: 10px;
-}
-
+/* Main Content Area */
 .main {
-  padding: 0.5rem;
-  margin-bottom: 5rem;
+  padding: 1.25rem;
+  flex: 1;
+  padding-bottom: 6rem;
 }
 
-.btn {
-  padding: 1rem;
-  text-align: center;
-}
-
+/* Bottom Action Bar & Button */
 .add-btn {
-  background-color: #60b524;
-  position: fixed;
-  width: 100%;
+  background-color: transparent;
+  position: sticky;
   bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0) 0%, #f8fafc 40%);
+  box-sizing: border-box;
+  z-index: 40;
 }
 
+.inner-btn {
+  background: var(--accent-gradient);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -4px rgba(16, 185, 129, 0.45);
+}
+
+.inner-btn a {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.add-page-text h2 {
+  font-size: 1.15rem;
+}
+
+/* Base Form Styling */
 .field {
   width: 100%;
+  margin-bottom: 1.1rem;
 }
 
-input[type='checkbox'] {
-  margin: 0.8rem;
+.field label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.4rem;
 }
 
 input[type='email'],
 input[type='password'],
 input[type='text'],
-input[type='submit'],
 input[type='number'] {
   width: 100%;
-  padding: 1rem;
-  margin: 0.3rem 0;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='text']:focus,
+input[type='number']:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(55, 120, 194, 0.15);
+}
+
+input[type='submit'] {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--primary-gradient);
   border: none;
-  border-bottom: 1px solid #efefef;
-  background-color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+input[type='submit']:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
 input[type='file'] {
-  padding: 0.5rem 0 0.5rem 0.5rem;
-}
-
-.inner-btn a {
-  color: white;
-}
-
-.inner-btn {
-  border: 1px solid white;
-  padding: 0.3rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 280px) {
-  .add-btn a {
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media (min-width: 425px) {
-  .add-btn a {
-    padding: 0.5rem 7.5rem;
-  }
+  width: 100%;
+  padding: 0.75rem;
+  background: #ffffff;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  box-sizing: border-box;
 }

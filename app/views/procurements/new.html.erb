@@ -9,22 +9,36 @@
     <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
   </nav>
   <section class="main">
-    <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
-      <div>
-        <%= f.text_field :name, placeholder: "Name of transaction" %>
-      </div>
-      <div>
-        <%= f.number_field :amount, placeholder: "Amount" %>
-      </div>
-      <div class="field">
-        <%= f.label :category_ids, 'Select Categories' %>:
-        <div>
-          <%= f.collection_check_boxes :category_ids, Category.where(author: current_user), :id, :name %>
+    <div class="form-card">
+      <h3 class="form-card-title">Transaction Details</h3>
+      <%= form_with model: @procurement, html: { multipart: true }, url: category_procurements_path do |f| %>
+        <div class="field">
+          <%= f.label :name, "Transaction Name" %>
+          <%= f.text_field :name, placeholder: "e.g. Weekly Grocery Shopping, Coffee" %>
         </div>
-      </div>
-      <div>
-        <%= f.submit 'Add transaction' %>
-      </div>
-    <% end %>
+
+        <div class="field">
+          <%= f.label :amount, "Amount (NGN)" %>
+          <%= f.number_field :amount, placeholder: "e.g. 45" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :category_ids, 'Select Categories' %>
+          <div class="category-checkboxes-container">
+            <%= f.collection_check_boxes :category_ids, Category.where(author: current_user), :id, :name do |b| %>
+              <label class="checkbox-pill">
+                <%= b.check_box %>
+                <span class="pill-text"><%= b.text %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Add transaction' %>
+        </div>
+      <% end %>
+    </div>
   </section>
 </section>
+
