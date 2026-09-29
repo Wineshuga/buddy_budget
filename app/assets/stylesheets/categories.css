@@ -47,8 +47,7 @@
   border-radius: var(--radius-md);
   padding: 1.1rem 1.2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-light);
   transition: all 0.2s ease;
@@ -63,26 +62,8 @@
 .category-one {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-}
-
-.category-img-box {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  overflow: hidden;
-  background-color: #f1f5f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid #e2e8f0;
-}
-
-.category-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .category-fallback-icon {
@@ -91,7 +72,8 @@
 
 .category-details {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.2rem;
 }
 
@@ -112,6 +94,7 @@
   padding: 0.5rem 0.85rem;
   border-radius: 10px;
   border: 1px solid #f1f5f9;
+  width: fit-content;
 }
 
 .category-amount {
@@ -163,4 +146,3 @@
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border-light);
 }
-

@@ -10,25 +10,14 @@
 
 <div class="category-hero-container">
   <section class="main-category">
-    <div class="category-box">
-      <div class="category-hero-img-box">
-        <% if @category.image.attached? %>
-          <img src="<%= @category.image.url %>" alt="<%= @category.name %>">
-        <% elsif @category.icon.present? %>
-          <img src="<%= @category.icon %>" alt="<%= @category.name %>">
-        <% else %>
-          <span class="category-hero-fallback">🏷️</span>
-        <% end %>
-      </div>
-      <div class="category-hero-text">
-        <span class="category-hero-label">Category</span>
-        <h3><%= @category.name %></h3>
-      </div>
+    <div class="category-hero-text">
+      <span class="category-hero-label">Category</span>
+      <h3><%= @category.name %></h3>
     </div>
     <% procurement_sum = @procurements.sum(&:amount) %>
     <div class="category-total-badge">
       <span class="total-label">Total Spent</span>
-      <p class="total-amount">NGN <%= procurement_sum %></p>
+      <p class="total-amount">₦ <%= procurement_sum %></p>
     </div>
   </section>
 </div>
@@ -48,11 +37,14 @@
             <div class="procurement-icon">🧾</div>
             <div>
               <p class="procurement-title"><%= procurement.name %></p>
-              <p class="procurement-date"><%= procurement.updated_at.strftime("%d %b %Y, %I:%M %p") %></p>
+              <p class="procurement-date"><%= procurement.updated_at.strftime("%d %b %Y") %></p>
+              <div class="procurement-amount-tag secondary">
+                <p>₦ <%= procurement.amount %></p>
+              </div>
             </div>
           </div>
           <div class="procurement-amount-tag">
-            <p>NGN <%= procurement.amount %></p>
+            <p>₦ <%= procurement.amount %></p>
           </div>
         </section>
       <% end %>
