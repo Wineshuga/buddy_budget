@@ -11,7 +11,7 @@
 
 .splash-main {
   text-align: center;
-  margin-top: 4rem;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,4 +92,3 @@
   border-color: #cbd5e1;
   transform: translateY(-2px);
 }
-
