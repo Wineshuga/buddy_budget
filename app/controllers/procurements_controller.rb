@@ -22,8 +22,18 @@ class ProcurementsController < ApplicationController
       puts 'ERRORS:'
       puts @procurement.errors.full_messages
       flash[:alert] = 'Error! Transaction can not be added!'
-      redirect_to new_category_procurements_path
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @procurement = Procurement.find(params[:id])
+    if @procurement.destroy
+      flash[:notice] = 'A transaction has been deleted!'
+    else
+      flash[:alert] = 'Error! Transaction could not be deleted!'
+    end
+    redirect_to category_procurements_path
   end
 
   private

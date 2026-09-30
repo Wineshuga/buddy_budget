@@ -20,6 +20,7 @@
       <p class="total-amount">₦ <%= procurement_sum %></p>
     </div>
   </section>
+  <%= button_to 'Delete', @category, method: :delete, class: "delete delete-category-btn" %>
 </div>
 
 <section class="main">
@@ -45,6 +46,7 @@
           </div>
           <div class="procurement-amount-tag">
             <p>₦ <%= procurement.amount %></p>
+            <%= button_to 'Delete', category_procurement_path(@category, procurement), method: :delete, class: "delete delete-transaction-btn" %>
           </div>
         </section>
       <% end %>

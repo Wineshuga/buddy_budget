@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :categories, only: [ :index, :create] do
+  resources :categories, only: [ :index, :create, :destroy] do
     collection do
       get 'add_a_category', to: 'categories#new', as: 'new'
     end
-    resources :procurements, only: [:index, :show, :create], path: 'transactions' do
+    resources :procurements, only: [:index, :show, :create, :destroy], path: 'transactions' do
       collection do
         get 'add_a_transaction', to: 'procurements#new', as: 'new'
       end
