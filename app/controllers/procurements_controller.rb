@@ -19,14 +19,26 @@ class ProcurementsController < ApplicationController
       flash[:notice] = 'A transaction has been created!'
       redirect_to category_procurements_path
     else
+      puts 'ERRORS:'
+      puts @procurement.errors.full_messages
       flash[:alert] = 'Error! Transaction can not be added!'
-      redirect_to new_category_procurements_path
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @procurement = Procurement.find(params[:id])
+    if @procurement.destroy
+      flash[:notice] = 'A transaction has been deleted!'
+    else
+      flash[:alert] = 'Error! Transaction could not be deleted!'
+    end
+    redirect_to category_procurements_path
   end
 
   private
 
   def procurement_params
-    params.require(:procurement).permit(:name, :amount, category_ids: [])
+    params.require(:procurement).permit(:name, :amount, :date, category_ids: [])
   end
 end

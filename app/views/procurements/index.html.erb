@@ -1,40 +1,62 @@
 <nav>
   <div>
-    <%= link_to '<', categories_path %>
+    <%= link_to '‹', categories_path %>
   </div>
   <div>
     <h2>Transactions</h2>
   </div>
   <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
 </nav>
-<section class="main-category">
-  <div class="category-box">
-    <img src="<%= @category.icon %>">
-    <p><%= @category.name %></p>
-  </div>
-  <% procurement_sum = 0 %>
-  <% @procurements.each do |procurement| %>
-    <% procurement_sum += procurement.amount %>
-  <% end %>
-  <div>
-    <p>$<%= procurement_sum %></p>
-  </div>
-</section>
-<section class="main">
-  <% @procurements.each do |procurement| %>
-  <section class="procurement">
-    <div>
-      <p><%= procurement.name %></p>
-      <p><%= procurement.updated_at.strftime("%e %b %Y") %></p>
+
+<div class="category-hero-container">
+  <section class="main-category">
+    <div class="category-hero-text">
+      <span class="category-hero-label">Category</span>
+      <h3><%= @category.name %></h3>
     </div>
-    <div>
-      <p>$<%= procurement.amount %></p>
+    <% procurement_sum = @procurements.sum(&:amount) %>
+    <div class="category-total-badge">
+      <span class="total-label">Total Spent</span>
+      <p class="total-amount">₦ <%= number_with_precision(procurement_sum, precision: 0, delimiter: ',') %></p>
     </div>
   </section>
+  <%= button_to 'Delete', @category, method: :delete, class: "delete delete-category-btn" %>
+</div>
+
+<section class="main">
+  <% if @procurements.empty? %>
+    <div class="empty-state">
+      <div class="empty-icon">💸</div>
+      <h3>No Transactions Found</h3>
+      <p>No transactions added for <%= @category.name %> yet.</p>
+    </div>
+  <% else %>
+    <div class="procurements-list">
+      <% @procurements.each do |procurement| %>
+        <section class="procurement">
+          <div class="procurement-info">
+            <div class="procurement-icon">🧾</div>
+            <div>
+              <p class="procurement-title"><%= procurement.name %></p>
+              <p class="procurement-date"><%= procurement.date.strftime("%d %b %Y") %></p>
+              <div class="procurement-amount-tag secondary">
+                <p>₦ <%= number_with_precision(procurement.amount, precision: 0, delimiter: ',') %></p>
+              </div>
+            </div>
+          </div>
+          <div class="procurement-amount-tag">
+            <p>₦ <%= number_with_precision(procurement.amount, precision: 0, delimiter: ',') %></p>
+            <%= button_to 'Delete', category_procurement_path(@category, procurement), method: :delete, class: "delete delete-transaction-btn" %>
+          </div>
+        </section>
+      <% end %>
+    </div>
   <% end %>
 </section>
+
 <div class="add-btn btn">
   <div class="inner-btn">
     <%= link_to 'Add a New Transaction', new_category_procurements_path %>
   </div>
 </div>
+

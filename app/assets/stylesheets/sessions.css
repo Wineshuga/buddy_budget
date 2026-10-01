@@ -1,14 +1,129 @@
-.login-page {
+.login-page,
+.sign_up-page {
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
 }
 
-.login-page input[type='email'],
-.login-page input[type='password'],
-.login-page input[type='text'],
-.login-page input[type='submit'],
-.login-page input[type='number'] {
-  width: 19rem;
+.auth-card {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.auth-header p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.remember-field {
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.remember-label input[type='checkbox'] {
+  accent-color: var(--primary-blue);
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.devise-links-container {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.shared-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.shared-link-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.shared-link-btn {
+  font-weight: 700;
+  color: var(--primary-blue);
+  transition: color 0.2s ease;
+}
+
+.shared-link-btn:hover {
+  color: var(--primary-blue-dark);
+  text-decoration: underline;
+}
+
+.forgot-link-box,
+.instruction-link-box {
+  margin-top: 0.25rem;
+}
+
+.forgot-link,
+.instruction-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover,
+.instruction-link:hover {
+  color: var(--primary-blue);
+}
+
+.error-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.error-banner h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #991b1b;
+  margin-bottom: 0.5rem;
+}
+
+.error-banner ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.error-banner li {
+  font-size: 0.82rem;
+  color: #b91c1c;
+  list-style-type: disc;
+  margin-bottom: 0.2rem;
 }

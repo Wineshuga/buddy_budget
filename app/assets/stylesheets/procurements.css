@@ -1,26 +1,182 @@
-.procurement,
+.category-hero-container {
+  padding: 1.25rem 1.25rem 0.25rem 1.25rem;
+  margin-top: -1.6rem;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+}
+
 .main-category {
-  background-color: white;
-  padding: 1rem;
+  padding-top: 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.category-box {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.category-hero-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
-.category-box img {
-  width: 15%;
+.category-hero-text h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.category-total-badge {
+  text-align: right;
+  background-color: #f8fafc;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #f1f5f9;
+}
+
+.total-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.total-amount {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.delete {
+  background-color: rgb(152, 17, 17);
+  color: white;
+  padding: 0.5rem 0.85rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.delete-category-btn {
+  margin: 0.5rem;
+  float: right;
+}
+
+.delete-transaction-btn {
+  margin-top: 0.2rem;
+  float: right;
+}
+
+.procurements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .procurement {
-  margin: 0.5rem 0;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
 }
 
-.procurement img {
-  width: 20%;
+.procurement:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.procurement-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.procurement-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.procurement-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.procurement-date {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.secondary {
+  display: none;
+}
+
+.procurement-amount-tag p {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #059669;
+}
+
+.category-checkboxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  background-color: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+.checkbox-pill input[type='checkbox'] {
+  accent-color: var(--primary-blue);
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.checkbox-pill:has(input:checked) {
+  background-color: #eff6ff;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+@media (max-width: 320px) {
+  .procurement {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .procurement-amount-tag {
+    display: none;
+  }
+
+  .secondary {
+    display: block;
+  }
 }
