@@ -17,7 +17,7 @@
     <% procurement_sum = @procurements.sum(&:amount) %>
     <div class="category-total-badge">
       <span class="total-label">Total Spent</span>
-      <p class="total-amount">₦ <%= procurement_sum %></p>
+      <p class="total-amount">₦ <%= number_with_precision(procurement_sum, precision: 0, delimiter: ',') %></p>
     </div>
   </section>
   <%= button_to 'Delete', @category, method: :delete, class: "delete delete-category-btn" %>
@@ -40,12 +40,12 @@
               <p class="procurement-title"><%= procurement.name %></p>
               <p class="procurement-date"><%= procurement.date.strftime("%d %b %Y") %></p>
               <div class="procurement-amount-tag secondary">
-                <p>₦ <%= procurement.amount %></p>
+                <p>₦ <%= number_with_precision(procurement.amount, precision: 0, delimiter: ',') %></p>
               </div>
             </div>
           </div>
           <div class="procurement-amount-tag">
-            <p>₦ <%= procurement.amount %></p>
+            <p>₦ <%= number_with_precision(procurement.amount, precision: 0, delimiter: ',') %></p>
             <%= button_to 'Delete', category_procurement_path(@category, procurement), method: :delete, class: "delete delete-transaction-btn" %>
           </div>
         </section>

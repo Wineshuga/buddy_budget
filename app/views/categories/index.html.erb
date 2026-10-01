@@ -8,7 +8,7 @@
   
   <div class="total-summary-card">
     <div class="summary-label">Total Expenditure</div>
-    <div class="summary-amount">₦ <%= number_with_precision(total_expenditure, precision: 2, delimiter: ',') %></div>
+    <div class="summary-amount">₦ <%= number_with_precision(total_expenditure, precision: 0, delimiter: ',') %></div>
     <div class="summary-meta"><%= @categories.count %> Categories tracked</div>
   </div>
 
