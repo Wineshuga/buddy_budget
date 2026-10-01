@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Procurement Index Page', type: :feature do
   include Devise::Test::IntegrationHelpers
+
   let(:user) { User.create(name: 'Tom', email: 'tom@gmail.com', password: 'password') }
   let(:cat) { Category.create(name: 'Category', author_id: user.id) }
 

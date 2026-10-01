@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Category Index Page', type: :feature do
   include Devise::Test::IntegrationHelpers
+
   let(:user) { User.create(name: 'Tom', email: 'tom@gmail.com', password: 'password') }
 
   before do
