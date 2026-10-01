@@ -19,7 +19,7 @@
     <div class="mobile-device-wrapper">
       <div class="mobile-screen">
         <% if notice.present? %>
-          <div class="flash-toast notice-wrapper">
+          <div class="flash-toast fade-out notice-wrapper">
             <p class="notice"><%= notice %></p>
           </div>
         <% else %>
@@ -27,7 +27,7 @@
         <% end %>
 
         <% if alert.present? %>
-          <div class="flash-toast alert-wrapper">
+          <div class="flash-toast fade-outalert-wrapper">
             <p class="alert"><%= alert %></p>
           </div>
         <% else %>
