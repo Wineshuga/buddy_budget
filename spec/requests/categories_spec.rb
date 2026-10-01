@@ -8,7 +8,7 @@ RSpec.describe 'Procurements', type: :request do
   end
 
   describe 'GET /index' do
-    let(:cat) { Category.create(name: 'Category', icon: 'https://img.png', author_id: user.id) }
+    let(:cat) { Category.create(name: 'Category', author_id: user.id) }
     before do
       get category_procurements_path(cat.id)
     end

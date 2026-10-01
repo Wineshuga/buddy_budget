@@ -8,10 +8,15 @@ RSpec.describe 'Procurements', type: :request do
   end
 
   describe 'GET /index' do
-    let(:cat) { Category.create(name: 'Category', icon: 'https://img.png', author_id: user.id) }
-    let(:pro) { Procurement.create(name: 'Item', amount: 10, author_id: user.id) }
+    let(:cat) { Category.create(name: 'Category', author_id: user.id) }
+    let(:pro) do
+      Procurement.create(name: 'Item', amount: 10, date: Date.new(2022, 11, 10), category_ids: [cat.id],
+                         author_id: user.id)
+    end
     let(:categories_procurement) { CategoriesProcurement.create(category: cat, procurement: pro) }
+
     before do
+      categories_procurement
       get category_procurements_path(cat)
     end
 
@@ -20,7 +25,7 @@ RSpec.describe 'Procurements', type: :request do
     end
 
     it 'renders placeholder on page' do
-      expect(response.body).to include('Transactions')
+      expect(response.body).to include('🧾')
     end
   end
 end
